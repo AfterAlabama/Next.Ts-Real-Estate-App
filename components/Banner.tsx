@@ -27,7 +27,7 @@ const Banner: FC<BannerProps> = ({
 				<Text fontSize='lg' color='gray.700' paddingTop='3' paddingBottom='3'>
 					{firstDescription} <br /> {secondDescription}
 				</Text>
-				<Button fontSize='xl' bg='bl.300' color='white'>
+				<Button fontSize='xl'>
 					<Link href={link}>{buttonText}</Link>
 				</Button>
 			</Box>
