@@ -2,6 +2,7 @@ import { ChildrenOnlyProps } from '@/utils/Props/Generic';
 import { Box } from '@chakra-ui/react';
 import Head from 'next/head';
 import { FC } from 'react';
+import Navbar from './Navbar';
 
 const Layout: FC<ChildrenOnlyProps> = ({ children }) => {
 	return (
@@ -13,7 +14,7 @@ const Layout: FC<ChildrenOnlyProps> = ({ children }) => {
 				maxWidth='1280px'
 				m='auto'
 			>
-				<header>navBar</header>
+				<header><Navbar/></header>
 				<main>{children}</main>
 				<footer>footer</footer>
 			</Box>
