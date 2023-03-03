@@ -1,7 +1,7 @@
 import Banner from '@/components/Banner';
 import Property from '@/components/Property';
-import { FetchApi } from '@/Fetch/FetchApi';
-import { HomeProps } from '@/utils/Props';
+import { FetchApi } from '@/fetch/FetchApi';
+import { HomeProps } from '@/utils/Props/Generic';
 import { Flex } from '@chakra-ui/react';
 import { FC } from 'react';
 
@@ -19,8 +19,12 @@ const Home: FC<HomeProps> = ({ resForRent, resForSale }) => {
 				imageUrl='https://bayut-production.s3.eu-central-1.amazonaws.com/image/145426814/33973352624c48628e41f2ec460faba4'
 			/>
 			<Flex flexWrap='wrap'>
-				{resForRent.map(property => 
-					<Property key={property.id} property = {property} />)}
+				{resForRent.map((property) => (
+					<Property
+						key={property.id}
+						property={property}
+					/>
+				))}
 			</Flex>
 			<Banner
 				purpose='Покупка Квартир'
@@ -33,14 +37,16 @@ const Home: FC<HomeProps> = ({ resForRent, resForSale }) => {
 				imageUrl='https://bayut-production.s3.eu-central-1.amazonaws.com/image/110993385/6a070e8e1bae4f7d8c1429bc303d2008'
 			/>
 			<Flex flexWrap='wrap'>
-				{resForSale.map(property => 
-					<Property key={property.id} property = {property} />)}
+				{resForSale.map((property) => (
+					<Property
+						key={property.id}
+						property={property}
+					/>
+				))}
 			</Flex>
 		</>
 	);
 };
-
-export default Home;
 
 export const getStaticProps = async () => {
 	const resForSale = await FetchApi(
@@ -57,3 +63,5 @@ export const getStaticProps = async () => {
 		},
 	};
 };
+
+export default Home;

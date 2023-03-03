@@ -1,4 +1,4 @@
-import { fetchedListProps } from '@/utils/Props';
+import { fetchedListProps } from '@/utils/Props/Fetch';
 import axios from 'axios';
 
 export const FetchApi = async (url: string) => {
@@ -6,8 +6,8 @@ export const FetchApi = async (url: string) => {
 		headers: {
 			'X-RapidAPI-Key': process.env.RAPID_KEY,
 			'X-RapidAPI-Host': 'bayut.p.rapidapi.com',
-		}
+		},
 	});
 
-  return res.data
+	return res.data;
 };
