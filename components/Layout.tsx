@@ -2,6 +2,7 @@ import { ChildrenOnlyProps } from '@/utils/Props/Generic';
 import { Box } from '@chakra-ui/react';
 import Head from 'next/head';
 import { FC } from 'react';
+import Footer from './Footer';
 import Navbar from './Navbar';
 
 const Layout: FC<ChildrenOnlyProps> = ({ children }) => {
@@ -16,7 +17,7 @@ const Layout: FC<ChildrenOnlyProps> = ({ children }) => {
 			>
 				<header><Navbar/></header>
 				<main>{children}</main>
-				<footer>footer</footer>
+				<footer><Footer/></footer>
 			</Box>
 		</>
 	);
