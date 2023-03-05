@@ -4,14 +4,28 @@ import millify from 'millify';
 import { FC } from 'react';
 
 const PropertyPrice: FC<PropertyPriceProps> = ({ price, rentFrequency }) => {
-	const rentCondition = 'monthly' ? 'Ежемесячно' : 'Ежегодно';
+	const rentCondition = (frequency: string) => {
+		if (frequency === 'monthly') {
+			return 'Ежемесячно';
+		}
+		if (frequency === 'yearly') {
+			return 'Ежегодно';
+		}
+		if (frequency === 'weekly') {
+			return 'Еженедельно';
+		}
+		if (frequency === 'daily') {
+			return 'Ежедневно';
+		}
+	};
+
 	return (
 		<Text
 			fontWeight='bold'
 			fontSize='lg'
 		>
 			Цена ${millify(price)}
-			{rentFrequency && `/${rentCondition}`}
+			{rentFrequency && `/${rentCondition(rentFrequency)}`}
 		</Text>
 	);
 };

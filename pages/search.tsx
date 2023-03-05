@@ -1,75 +1,37 @@
-import Property from '@/components/Property';
-import SearchFilters from '@/components/SearchFilters';
+import SearchInput from '@/components/UI/Search/SearchInput';
+import SearchNothingFound from '@/components/UI/Search/SearchNothingFound';
+import SearchProperties from '@/components/UI/Search/SearchProperties';
+import SearchShowFilters from '@/components/UI/Search/SearchShowFilters';
+import SearchTitle from '@/components/UI/Search/SearchTitle';
 import { FetchApi } from '@/fetch/FetchApi';
-import { Box, Flex, Icon, Text } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import { InferGetServerSidePropsType } from 'next';
-import { useRouter } from 'next/router';
 import { ParsedUrlQuery } from 'querystring';
 import { useState } from 'react';
-import { BsFilter } from 'react-icons/bs';
 
 const Search = ({
 	properties,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-	const [searchFilters, setSearchFilters] = useState<boolean>(false);
+	const [input, setInput] = useState<string>('');
 
-	const router = useRouter();
+	const PropertiesHandler = () => {
+		if (input.trim().length !== 0) {
+			return properties.filter((property) =>
+				property.title.toLowerCase().includes(input.toLowerCase())
+			);
+		}
+		return properties;
+	};
 
-	const SearchCondition = searchFilters && <SearchFilters />;
-
-	const PurposeCondition =
-		router.query.purpose === 'for-rent' ? 'Для Съема' : 'Для Продажи';
-
-	const ShowProperties = properties.map((property) => (
-		<Property
-			property={property}
-			key={property.id}
-		/>
-	));
-
-	const NotFound = properties.length === 0 && (
-		<Flex
-			justifyContent='center'
-			alignItems='center'
-			flexDirection='column'
-			marginTop='5'
-			marginBottom='5'
-		>
-			<Text fontSize='3xl'>Ничего Не Найдено</Text>
-		</Flex>
-	);
+	const SearchedProperties = PropertiesHandler();
 
 	return (
 		<Box>
-			<Flex
-				cursor='pointer'
-				bg='gray.100'
-				borderBottom='1px'
-				borderColor='gray.200'
-				p='2'
-				fontWeight='black'
-				fontSize='lg'
-				justifyContent='center'
-				alignItems='center'
-				onClick={() => setSearchFilters((prev) => !prev)}
-			>
-				<Text>Поиск Квартир По Условиям</Text>
-				<Icon
-					paddingLeft='2'
-					w='7'
-					as={BsFilter}
-				/>
-			</Flex>
-			{SearchCondition}
-			<Text
-				fontSize='2xl'
-				p='4'
-				fontWeight='bold'
-			>
-				Квартиры {PurposeCondition}
-			</Text>
-			<Flex flexWrap='wrap'>{ShowProperties}</Flex>
-			{NotFound}
+			<SearchShowFilters />
+			<SearchInput setInput={setInput} />
+			<SearchTitle />
+			<SearchProperties properties={SearchedProperties} />
+			<SearchNothingFound properties={SearchedProperties} />
 		</Box>
 	);
 };
