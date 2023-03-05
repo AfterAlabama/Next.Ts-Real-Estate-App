@@ -1,11 +1,13 @@
 import Banner from '@/components/Banner';
 import Property from '@/components/Property';
 import { FetchApi } from '@/fetch/FetchApi';
-import { HomeProps } from '@/utils/Props/Generic';
 import { Flex } from '@chakra-ui/react';
-import { FC } from 'react';
+import { InferGetStaticPropsType } from 'next';
 
-const Home: FC<HomeProps> = ({ resForRent, resForSale }) => {
+const Home = ({
+	resForRent,
+	resForSale,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
 	return (
 		<>
 			<Banner
