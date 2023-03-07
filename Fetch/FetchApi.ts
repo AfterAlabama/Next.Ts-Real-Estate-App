@@ -1,13 +1,5 @@
-import { fetchedListProps } from '@/utils/Props/Fetch';
-import axios from 'axios';
+import { useFetch } from '@/utils/Hooks/useFetch';
 
-export const FetchApi = async (url: string) => {
-	const res = await axios.get<fetchedListProps>(url, {
-		headers: {
-			'X-RapidAPI-Key': process.env.RAPID_KEY,
-			'X-RapidAPI-Host': 'bayut.p.rapidapi.com',
-		},
-	});
-
-	return res.data;
+export const FetchApi = <T>(url: string): Promise<T> => {
+	return useFetch(url);
 };

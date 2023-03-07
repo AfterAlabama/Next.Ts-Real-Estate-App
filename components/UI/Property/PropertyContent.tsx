@@ -3,6 +3,7 @@ import { Flex } from '@chakra-ui/react';
 import { FC } from 'react';
 import PropertyDescription from './PropertyDescription';
 import PropertyPic from './PropertyPic';
+import PropertyTitle from './PropertyTitle';
 
 const PropertyContent: FC<PropertyContentProps> = ({
 	coverPhoto,
@@ -15,6 +16,8 @@ const PropertyContent: FC<PropertyContentProps> = ({
 	title,
 	area,
 }) => {
+	const titleCondition =
+		title.length > 30 ? `${title.substring(0, 30)}...` : title;
 	return (
 		<Flex
 			flexWrap='wrap'
@@ -32,9 +35,9 @@ const PropertyContent: FC<PropertyContentProps> = ({
 				agency={agency}
 				rooms={rooms}
 				baths={baths}
-				title={title}
 				area={area}
 			/>
+			<PropertyTitle title={titleCondition} />
 		</Flex>
 	);
 };

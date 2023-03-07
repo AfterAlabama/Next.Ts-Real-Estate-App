@@ -1,13 +1,29 @@
 import Banner from '@/components/Banner';
 import Property from '@/components/Property';
 import { FetchApi } from '@/fetch/FetchApi';
+import { FetchedListProps } from '@/utils/Props/Fetch';
 import { Flex } from '@chakra-ui/react';
 import { InferGetStaticPropsType } from 'next';
+import { FC } from 'react';
 
-const Home = ({
+const Home: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
 	resForRent,
 	resForSale,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+}) => {
+	const ShowRentPics = resForRent.map((property) => (
+		<Property
+			key={property.id}
+			property={property}
+		/>
+	));
+
+	const ShowSalePics = resForSale.map((property) => (
+		<Property
+			key={property.id}
+			property={property}
+		/>
+	));
+
 	return (
 		<>
 			<Banner
@@ -20,14 +36,7 @@ const Home = ({
 				link='/search?purpose=for-rent'
 				imageUrl='https://bayut-production.s3.eu-central-1.amazonaws.com/image/145426814/33973352624c48628e41f2ec460faba4'
 			/>
-			<Flex flexWrap='wrap'>
-				{resForRent.map((property) => (
-					<Property
-						key={property.id}
-						property={property}
-					/>
-				))}
-			</Flex>
+			<Flex flexWrap='wrap'>{ShowRentPics}</Flex>
 			<Banner
 				purpose='Покупка Квартир'
 				firstTitle='Покупка домов для'
@@ -38,23 +47,16 @@ const Home = ({
 				link='/search?purpose=for-sale'
 				imageUrl='https://bayut-production.s3.eu-central-1.amazonaws.com/image/110993385/6a070e8e1bae4f7d8c1429bc303d2008'
 			/>
-			<Flex flexWrap='wrap'>
-				{resForSale.map((property) => (
-					<Property
-						key={property.id}
-						property={property}
-					/>
-				))}
-			</Flex>
+			<Flex flexWrap='wrap'>{ShowSalePics}</Flex>
 		</>
 	);
 };
 
 export const getStaticProps = async () => {
-	const resForSale = await FetchApi(
+	const resForSale: FetchedListProps = await FetchApi<FetchedListProps>(
 		`${process.env.BASE_URL}/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=6`
 	);
-	const resForRent = await FetchApi(
+	const resForRent: FetchedListProps = await FetchApi<FetchedListProps>(
 		`${process.env.BASE_URL}/properties/list?locationExternalIDs=5002&purpose=for-rent&hitsPerPage=6`
 	);
 

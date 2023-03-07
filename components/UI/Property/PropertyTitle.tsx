@@ -3,10 +3,7 @@ import { Text } from '@chakra-ui/react';
 import { FC } from 'react';
 
 const PropertyTitle: FC<PropertyTitleProps> = ({ title }) => {
-	const titleCondition =
-		title.length > 30 ? `${title.substring(0, 30)}...` : title;
-
-	return <Text fontSize='lg'>{titleCondition}</Text>;
+	return <Text fontSize='lg'>{title}</Text>;
 };
 
 export default PropertyTitle;

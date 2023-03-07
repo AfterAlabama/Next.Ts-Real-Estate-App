@@ -1,4 +1,4 @@
-import { DataProps } from "./Fetch";
+import { DataProps } from './Fetch';
 
 export interface PropertyProps {
 	property: DataProps;
@@ -32,7 +32,6 @@ export interface PropertyDescriptionProps {
 	price: number;
 	rentFrequency: string;
 	rooms: number;
-	title: string;
 	baths: number;
 	area: number;
 	agency: {
@@ -68,4 +67,35 @@ export interface PropertyIconsProps {
 
 export interface PropertyTitleProps {
 	title: string;
+}
+
+export interface ImageScrollBarProps {
+	data: [
+		{
+			id: string;
+			url: string;
+		}
+	];
+}
+
+export interface PropertyReviewProps {
+	type: string;
+	purpose: string;
+	furnishingStatus: string;
+}
+
+export interface PropertyTypeProps {
+	type: string;
+}
+
+export interface PropertyPurposeProps {
+	purpose: string;
+}
+
+export interface PropertyFurnishedProps {
+	furnishingStatus: string;
+}
+
+export interface PropertyAmenitiesProps {
+	amenities: [{ amenities: [{ text: string }] }];
 }

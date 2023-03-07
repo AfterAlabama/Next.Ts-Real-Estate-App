@@ -4,7 +4,6 @@ import { FC } from 'react';
 import PropertyAvatar from './PropertyAvatar';
 import PropertyIcons from './PropertyIcons';
 import PropertyPrice from './PropertyPrice';
-import PropertyTitle from './PropertyTitle';
 import PropertyVerified from './PropertyVerified';
 
 const PropertyDescription: FC<PropertyDescriptionProps> = ({
@@ -14,9 +13,9 @@ const PropertyDescription: FC<PropertyDescriptionProps> = ({
 	agency,
 	rooms,
 	baths,
-	title,
 	area,
 }) => {
+	
 	return (
 		<Box w='full'>
 			<Flex
@@ -38,7 +37,6 @@ const PropertyDescription: FC<PropertyDescriptionProps> = ({
 				baths={baths}
 				rooms={rooms}
 			/>
-			<PropertyTitle title={title} />
 		</Box>
 	);
 };

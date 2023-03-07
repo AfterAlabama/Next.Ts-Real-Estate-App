@@ -4,20 +4,20 @@ import router from 'next/router';
 import { useState } from 'react';
 
 const SearchFilters = () => {
-	const [filters, setFilters] = useState(filterData);
+	const [filters] = useState(filterData);
 
-	const searchProperties = (filterValues: {[key: string] : string}) => {
+	const searchProperties = (filterValues: { [key: string]: string }) => {
 		const path = router.pathname;
 		const query = router.query;
 
 		const values = getFilterValues(filterValues);
 
-		values.forEach(item => {
-			query[item.name] = item.value
+		values.forEach((item) => {
+			query[item.name] = item.value;
 		});
 
-		router.push({pathname: path, query})
-	}
+		router.push({ pathname: path, query });
+	};
 
 	const ShowFilters = filters.map((filter) => (
 		<Box key={filter.queryName}>
@@ -25,7 +25,9 @@ const SearchFilters = () => {
 				w='fit-content'
 				p='2'
 				placeholder={filter.placeholder}
-				onChange={e => searchProperties({[filter.queryName]:e.target.value})}
+				onChange={(e) =>
+					searchProperties({ [filter.queryName]: e.target.value })
+				}
 			>
 				{filter.items.map((item) => (
 					<option

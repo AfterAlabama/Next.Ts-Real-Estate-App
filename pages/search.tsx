@@ -4,14 +4,15 @@ import SearchProperties from '@/components/UI/Search/SearchProperties';
 import SearchShowFilters from '@/components/UI/Search/SearchShowFilters';
 import SearchTitle from '@/components/UI/Search/SearchTitle';
 import { FetchApi } from '@/fetch/FetchApi';
+import { FetchedListProps } from '@/utils/Props/Fetch';
 import { Box } from '@chakra-ui/react';
 import { InferGetServerSidePropsType } from 'next';
 import { ParsedUrlQuery } from 'querystring';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 
-const Search = ({
+const Search: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({
 	properties,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+}) => {
 	const [input, setInput] = useState<string>('');
 
 	const PropertiesHandler = () => {
@@ -48,7 +49,7 @@ export async function getServerSideProps({ query }: { query: ParsedUrlQuery }) {
 	const locationExternalIDs = query.locationExternalIDs || '5002';
 	const categoryExternalID = query.categoryExternalID || '4';
 
-	const data = await FetchApi(
+	const data: FetchedListProps = await FetchApi<FetchedListProps>(
 		`${process.env.BASE_URL}/properties/list?locationExternalIDs=${locationExternalIDs}&purpose=${purpose}&categoryExternalID=${categoryExternalID}&bathsMin=${bathsMin}&rentFrequency=${rentFrequency}&priceMin=${minPrice}&priceMax=${maxPrice}&roomsMin=${roomsMin}&sort=${sort}&areaMax=${areaMax}`
 	);
 
