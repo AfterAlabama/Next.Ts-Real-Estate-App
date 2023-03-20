@@ -1,10 +1,10 @@
-import ImageScrollBar from '@/components/ImageScrollBar';
-import PropertyAmenities from '@/components/UI/Property/PropertyAmenities';
-import PropertyDescription from '@/components/UI/Property/PropertyDescription';
-import PropertyReview from '@/components/UI/Property/PropertyReview';
-import PropertyTitle from '@/components/UI/Property/PropertyTitle';
+import ImageScrollBar from '@/components/Misc/ImageScrollBar';
+import PropertyAmenities from '@/components/Property/PropertyAmenities';
+import PropertyDescription from '@/components/Property/PropertyDescription';
+import PropertyReview from '@/components/Property/PropertyReview';
+import PropertyTitle from '@/components/Property/PropertyTitle';
 import { FetchApi } from '@/fetch/FetchApi';
-import { PropertyDetailsProps } from '@/utils/Props/Fetch';
+import { PropertyDetailsProps } from '@/types/Props/Fetch';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 import { FC } from 'react';

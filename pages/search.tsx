@@ -1,11 +1,10 @@
-import SearchInput from '@/components/UI/Search/SearchInput';
-import SearchNothingFound from '@/components/UI/Search/SearchNothingFound';
-import SearchProperties from '@/components/UI/Search/SearchProperties';
-import SearchShowFilters from '@/components/UI/Search/SearchShowFilters';
-import SearchTitle from '@/components/UI/Search/SearchTitle';
+import SearchInput from '@/components/Search/SearchInput';
+import SearchNothingFound from '@/components/Search/SearchNothingFound';
+import SearchProperties from '@/components/Search/SearchProperties';
+import SearchShowFilters from '@/components/Search/SearchShowFilters';
+import SearchTitle from '@/components/Search/SearchTitle';
 import { FetchApi } from '@/fetch/FetchApi';
-import { FetchedListProps } from '@/utils/Props/Fetch';
-import { Box } from '@chakra-ui/react';
+import { DataProps, FetchedListProps } from '@/types/Props/Fetch';
 import { InferGetServerSidePropsType } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import { FC, useState } from 'react';
@@ -15,7 +14,7 @@ const Search: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({
 }) => {
 	const [input, setInput] = useState<string>('');
 
-	const PropertiesHandler = () => {
+	const PropertiesHandler = (): DataProps[] => {
 		if (input.trim().length !== 0) {
 			return properties.filter((property) =>
 				property.title.toLowerCase().includes(input.toLowerCase())
@@ -27,13 +26,13 @@ const Search: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({
 	const SearchedProperties = PropertiesHandler();
 
 	return (
-		<Box>
+		<>
 			<SearchShowFilters />
 			<SearchInput setInput={setInput} />
 			<SearchTitle />
 			<SearchProperties properties={SearchedProperties} />
 			<SearchNothingFound properties={SearchedProperties} />
-		</Box>
+		</>
 	);
 };
 

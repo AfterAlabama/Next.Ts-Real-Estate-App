@@ -1,7 +1,7 @@
-import Banner from '@/components/Banner';
-import Property from '@/components/Property';
+import Banner from '@/components/Banner/Banner';
+import Property from '@/components/Property/Property';
 import { FetchApi } from '@/fetch/FetchApi';
-import { FetchedListProps } from '@/utils/Props/Fetch';
+import { FetchedListProps } from '@/types/Props/Fetch';
 import { Flex } from '@chakra-ui/react';
 import { InferGetStaticPropsType } from 'next';
 import { FC } from 'react';
