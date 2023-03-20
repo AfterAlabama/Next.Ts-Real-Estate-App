@@ -54,10 +54,10 @@ const Home: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
 
 export const getStaticProps = async () => {
 	const resForSale: FetchedListProps = await FetchApi<FetchedListProps>(
-		`${process.env.BASE_URL}/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=6`
+		`https://bayut.p.rapidapi.com/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=6`
 	);
 	const resForRent: FetchedListProps = await FetchApi<FetchedListProps>(
-		`${process.env.BASE_URL}/properties/list?locationExternalIDs=5002&purpose=for-rent&hitsPerPage=6`
+		`https://bayut.p.rapidapi.com/properties/list?locationExternalIDs=5002&purpose=for-rent&hitsPerPage=6`
 	);
 
 	return {

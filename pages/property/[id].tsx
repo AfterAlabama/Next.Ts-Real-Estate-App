@@ -84,7 +84,7 @@ export const getServerSideProps = async (
 ) => {
 	const id = context.params!.id;
 	const data: PropertyDetailsProps = await FetchApi<PropertyDetailsProps>(
-		`${process.env.BASE_URL}/properties/detail?externalID=${id}`
+		`https://bayut.p.rapidapi.com/properties/detail?externalID=${id}`
 	);
 
 	return {
