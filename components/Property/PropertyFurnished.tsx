@@ -6,7 +6,8 @@ const PropertyFurnished: FC<PropertyFurnishedProps> = ({
 	furnishingStatus,
 }) => {
 	const FurnishedCondition =
-		furnishingStatus === 'furnished' ? 'С Мебелью' : 'Без Мебели';
+		furnishingStatus === 'furnished' ? 'С Мебелью' : 'Без Мебели'
+	;
 
 	return (
 		<Flex

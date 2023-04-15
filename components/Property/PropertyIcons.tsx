@@ -7,6 +7,7 @@ import { FaBath, FaBed } from 'react-icons/fa';
 
 const PropertyIcons: FC<PropertyIconsProps> = ({ area, rooms, baths }) => {
 	const areaInMetrics = area * 0.092903411613275;
+	
 	return (
 		<Flex
 			alignItems='center'

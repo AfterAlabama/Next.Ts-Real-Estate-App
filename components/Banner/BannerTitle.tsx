@@ -4,14 +4,12 @@ import { FC } from 'react';
 
 const BannerTitle: FC<BannerTitleProps> = ({ firstTitle, secondTitle }) => {
 	return (
-		<>
-			<Text
-				fontSize='3xl'
-				fontWeight='bold'
-			>
-				{firstTitle} <br /> {secondTitle}
-			</Text>
-		</>
+		<Text
+			fontSize='3xl'
+			fontWeight='bold'
+		>
+			{firstTitle} <br /> {secondTitle}
+		</Text>
 	);
 };
 

@@ -1,4 +1,4 @@
-export const useDebounce = (cb: Function, delay: number) => {
+export const useDebounce = (cb: (args:string) => void, delay: number) => {
 	let timeout: number;
 	return (args: string) => {
 		clearTimeout(timeout);

@@ -4,7 +4,7 @@ import { BsFilter } from 'react-icons/bs';
 import SearchFilters from './SearchFilters';
 
 const SearchShowFilters = () => {
-	const [searchFilters, setSearchFilters] = useState<boolean>(false);
+	const [searchFilters, setSearchFilters] = useState(false);
 
 	const SearchCondition = searchFilters && <SearchFilters />;
 

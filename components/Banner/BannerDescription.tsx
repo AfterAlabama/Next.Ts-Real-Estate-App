@@ -7,16 +7,14 @@ const BannerDescription: FC<BannerDescriptionProps> = ({
 	secondDescription,
 }) => {
 	return (
-		<>
-			<Text
-				fontSize='lg'
-				color='gray.700'
-				paddingTop='3'
-				paddingBottom='3'
-			>
-				{firstDescription} <br /> {secondDescription}
-			</Text>
-		</>
+		<Text
+			fontSize='lg'
+			color='gray.700'
+			paddingTop='3'
+			paddingBottom='3'
+		>
+			{firstDescription} <br /> {secondDescription}
+		</Text>
 	);
 };
 

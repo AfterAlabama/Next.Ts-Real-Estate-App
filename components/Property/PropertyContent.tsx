@@ -17,7 +17,9 @@ const PropertyContent: FC<PropertyContentProps> = ({
 	area,
 }) => {
 	const titleCondition =
-		title.length > 30 ? `${title.substring(0, 30)}...` : title;
+		title.length > 30 ? `${title.substring(0, 30)}...` : title
+	;
+	
 	return (
 		<Flex
 			flexWrap='wrap'

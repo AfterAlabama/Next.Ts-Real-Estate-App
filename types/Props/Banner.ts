@@ -9,35 +9,17 @@ export interface BannerProps {
 	imageUrl: string;
 }
 
-export interface BannerContentProps {
-	purpose: string;
-	firstTitle: string;
-	secondTitle: string;
-	firstDescription: string;
-	secondDescription: string;
-	buttonText: string;
-	link: string;
-}
+export type BannerContentProps = Omit<BannerProps, 'imageUrl'>;
 
-export interface BannerPicProps {
-	imageUrl: string;
-}
+export type BannerPicProps = Pick<BannerProps, 'imageUrl'>;
 
-export interface BannerPurposeProps {
-	purpose: string;
-}
+export type BannerPurposeProps = Pick<BannerProps, 'purpose'>;
 
-export interface BannerTitleProps {
-	firstTitle: string;
-	secondTitle: string;
-}
+export type BannerTitleProps = Pick<BannerProps, 'firstTitle' | 'secondTitle'>;
 
-export interface BannerDescriptionProps {
-	firstDescription: string;
-	secondDescription: string;
-}
+export type BannerDescriptionProps = Pick<
+	BannerProps,
+	'firstDescription' | 'secondDescription'
+>;
 
-export interface BannerButtonProps {
-	link: string;
-	buttonText: string;
-}
+export type BannerButtonProps = Pick<BannerProps, 'link' | 'buttonText'>;

@@ -4,15 +4,15 @@ import { FC } from 'react';
 import defaultImage from '../../assets/house.jpg';
 
 const PropertyPic: FC<PropertyPicProps> = ({ coverPhoto }) => {
+	const srcCondition = coverPhoto ? coverPhoto.url : `${defaultImage}`;
+
 	return (
-		<>
-			<Image
-				alt='coverPhoto'
-				src={coverPhoto ? coverPhoto.url : `${defaultImage}`}
-				width={400}
-				height={260}
-			/>
-		</>
+		<Image
+			alt='coverPhoto'
+			src={srcCondition}
+			width={400}
+			height={260}
+		/>
 	);
 };
 

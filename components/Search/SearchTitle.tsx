@@ -5,7 +5,9 @@ const SearchTitle = () => {
 	const router = useRouter();
 
 	const PurposeCondition =
-		router.query.purpose === 'for-rent' ? 'Для Съема' : 'Для Продажи';
+		router.query.purpose === 'for-rent' ? 'Для Съема' : 'Для Продажи'
+	;
+
 	return (
 		<Text
 			fontSize='2xl'

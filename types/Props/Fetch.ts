@@ -22,28 +22,12 @@ export interface FetchedListProps {
 	hits: DataProps[];
 }
 
-export interface PropertyDetailsProps {
-	price: number;
-	rentFrequency: string;
-	rooms: number;
-	title: string;
-	baths: number;
-	area: number;
-	agency: {
-		logo: {
-			url: string;
-		};
-	};
-	isVerified: boolean;
-	id: number;
-	description: string;
+export interface FetchedPropertyDetailsProps
+	extends Omit<DataProps, 'coverPhoto' | 'externalID'> {
 	type: string;
+	description: string;
 	purpose: string;
 	furnishingStatus: string;
-	amenities: [
-		{amenities: [
-			{text:string}
-		]}
-	];
+	amenities: [{ amenities: [{ text: string }] }];
 	photos: [{ id: string; url: string }];
 }

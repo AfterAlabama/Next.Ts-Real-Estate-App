@@ -15,9 +15,9 @@ const Layout: FC<ChildrenOnlyProps> = ({ children }) => {
 				maxWidth='1280px'
 				m='auto'
 			>
-				<header>
+				<nav>
 					<Navbar />
-				</header>
+				</nav>
 				<main>{children}</main>
 				<footer>
 					<Footer />

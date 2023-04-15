@@ -1,101 +1,43 @@
-import { DataProps } from './Fetch';
+import { DataProps, FetchedPropertyDetailsProps } from './Fetch';
 
 export interface PropertyProps {
 	property: DataProps;
 }
 
-export interface PropertyPicProps {
-	coverPhoto: {
-		url: string;
-	};
-}
+export type PropertyPicProps = Pick<DataProps, 'coverPhoto'>;
 
-export interface PropertyContentProps {
-	coverPhoto: {
-		url: string;
-	};
-	price: number;
-	rentFrequency: string;
-	rooms: number;
-	title: string;
-	baths: number;
-	area: number;
-	agency: {
-		logo: {
-			url: string;
-		};
-	};
-	isVerified: boolean;
-}
+export type PropertyContentProps = Omit<DataProps, 'id' | 'externalID'>;
 
-export interface PropertyDescriptionProps {
-	price: number;
-	rentFrequency: string;
-	rooms: number;
-	baths: number;
-	area: number;
-	agency: {
-		logo: {
-			url: string;
-		};
-	};
-	isVerified: boolean;
-}
+export type PropertyDescriptionProps = Omit<
+	DataProps,
+	'id' | 'externalID' | 'coverPhoto' | 'title'
+>;
 
-export interface PropertyVerifiedprops {
-	isVerified: boolean;
-}
+export type PropertyVerifiedprops = Pick<DataProps, 'isVerified'>;
 
-export interface PropertyPriceProps {
-	price: number;
-	rentFrequency: string;
-}
+export type PropertyPriceProps = Pick<DataProps, 'price' | 'rentFrequency'>;
 
-export interface PropertyAvatarProps {
-	agency: {
-		logo: {
-			url: string;
-		};
-	};
-}
+export type PropertyAvatarProps = Pick<DataProps, 'agency'>;
 
-export interface PropertyIconsProps {
-	area: number;
-	rooms: number;
-	baths: number;
-}
+export type PropertyIconsProps = Pick<DataProps, 'area' | 'rooms' | 'baths'>;
 
-export interface PropertyTitleProps {
-	title: string;
-}
+export type PropertyTitleProps = Pick<DataProps, 'title'>;
 
-export interface ImageScrollBarProps {
-	data: [
-		{
-			id: string;
-			url: string;
-		}
-	];
-}
+export type PropertyReviewProps = Pick<
+	FetchedPropertyDetailsProps,
+	'type' | 'purpose' | 'furnishingStatus'
+>;
 
-export interface PropertyReviewProps {
-	type: string;
-	purpose: string;
-	furnishingStatus: string;
-}
+export type PropertyTypeProps = Pick<FetchedPropertyDetailsProps, 'type'>;
 
-export interface PropertyTypeProps {
-	type: string;
-}
+export type PropertyPurposeProps = Pick<FetchedPropertyDetailsProps, 'purpose'>;
 
-export interface PropertyPurposeProps {
-	purpose: string;
-}
+export type PropertyFurnishedProps = Pick<
+	FetchedPropertyDetailsProps,
+	'furnishingStatus'
+>;
 
-export interface PropertyFurnishedProps {
-	furnishingStatus: string;
-}
-
-export interface PropertyAmenitiesProps {
-	amenities: [{ amenities: [{ text: string }] }];
-}
+export type PropertyAmenitiesProps = Pick<
+	FetchedPropertyDetailsProps,
+	'amenities'
+>;

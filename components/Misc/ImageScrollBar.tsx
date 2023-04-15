@@ -1,14 +1,10 @@
-import { ImageScrollBarProps } from '@/types/Props/Property';
+import { ImageScrollBarProps } from '@/types/Props/Generic';
 import { Box, Image } from '@chakra-ui/react';
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 import { ScrollMenu } from 'react-horizontal-scrolling-menu';
-import { VisibilityContext } from 'react-horizontal-scrolling-menu';
-import { FaArrowCircleLeft, FaArrowCircleRight } from 'react-icons/fa';
 import { LeftScrollArrow, RightScrollArrow } from './ScrollArrow';
 
 const ImageScrollBar: FC<ImageScrollBarProps> = ({ data }) => {
-	const { scrollNext } = useContext(VisibilityContext);
-
 	const ShowScrollPics = data.map((item) => (
 		<Box
 			key={item.id}

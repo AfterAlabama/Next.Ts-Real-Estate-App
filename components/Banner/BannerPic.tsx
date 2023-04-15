@@ -4,14 +4,12 @@ import { FC } from 'react';
 
 const BannerPic: FC<BannerPicProps> = ({ imageUrl }) => {
 	return (
-		<>
-			<Image
-				alt='Banner'
-				src={imageUrl}
-				width={500}
-				height={300}
-			/>
-		</>
+		<Image
+			alt='Banner'
+			src={imageUrl}
+			width={500}
+			height={300}
+		/>
 	);
 };
 

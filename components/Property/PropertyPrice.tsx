@@ -11,13 +11,13 @@ const PropertyPrice: FC<PropertyPriceProps> = ({ price, rentFrequency }) => {
 		if (frequency === 'yearly') {
 			return 'Ежегодно';
 		}
-		if (frequency === 'weekly') {
-			return 'Еженедельно';
-		}
 		if (frequency === 'daily') {
 			return 'Ежедневно';
 		}
+
+		return 'Еженедельно';
 	};
+	const priceCondition = rentFrequency ? `/${rentCondition(rentFrequency)}` : '';
 
 	return (
 		<Text
@@ -25,7 +25,7 @@ const PropertyPrice: FC<PropertyPriceProps> = ({ price, rentFrequency }) => {
 			fontSize='lg'
 		>
 			Цена ${millify(price)}
-			{rentFrequency && `/${rentCondition(rentFrequency)}`}
+			{priceCondition}
 		</Text>
 	);
 };

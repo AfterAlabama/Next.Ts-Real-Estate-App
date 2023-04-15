@@ -5,6 +5,7 @@ import { FaArrowCircleLeft, FaArrowCircleRight } from 'react-icons/fa';
 
 export const LeftScrollArrow = () => {
 	const { scrollPrev } = useContext(VisibilityContext);
+
 	return (
 		<Flex
 			justifyContent='center'
@@ -23,6 +24,7 @@ export const LeftScrollArrow = () => {
 
 export const RightScrollArrow = () => {
 	const { scrollNext } = useContext(VisibilityContext);
+	
 	return (
 		<Flex
 			justifyContent='center'

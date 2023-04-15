@@ -5,11 +5,9 @@ import { FC } from 'react';
 
 const BannerButton: FC<BannerButtonProps> = ({ link, buttonText }) => {
 	return (
-		<>
-			<Button fontSize='xl'>
-				<Link href={link}>{buttonText}</Link>
-			</Button>
-		</>
+		<Button fontSize='xl'>
+			<Link href={link}>{buttonText}</Link>
+		</Button>
 	);
 };
 

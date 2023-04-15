@@ -4,7 +4,7 @@ import { Flex, FormLabel, Input } from '@chakra-ui/react';
 import { FC, useEffect, useState } from 'react';
 
 const SearchInput: FC<SearchInputProps> = ({ setInput }) => {
-	const [inputValue, setInputValue] = useState<string>('');
+	const [inputValue, setInputValue] = useState('');
 
 	const inputHandler = (val: string) => {
 		setInputValue(val);

@@ -122,7 +122,7 @@ export const filterData = [
 	},
 ];
 
-export const getFilterValues = (filterValues: { [key: string]: string }) => {
+export const getFilterValues = (filterValues: Record<string, string>) => {
 	const {
 		purpose,
 		rentFrequency,

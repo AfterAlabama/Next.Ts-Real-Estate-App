@@ -6,7 +6,7 @@ import { useState } from 'react';
 const SearchFilters = () => {
 	const [filters] = useState(filterData);
 
-	const searchProperties = (filterValues: { [key: string]: string }) => {
+	const searchProperties = (filterValues: Record<string, string>) => {
 		const path = router.pathname;
 		const query = router.query;
 

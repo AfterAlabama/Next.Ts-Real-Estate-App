@@ -4,15 +4,13 @@ import { FC } from 'react';
 
 const BannerPurpose: FC<BannerPurposeProps> = ({ purpose }) => {
 	return (
-		<>
-			<Text
-				color='gray.500'
-				fontSize='sm'
-				fontWeight='medium'
-			>
-				{purpose}
-			</Text>
-		</>
+		<Text
+			color='gray.500'
+			fontSize='sm'
+			fontWeight='medium'
+		>
+			{purpose}
+		</Text>
 	);
 };
 

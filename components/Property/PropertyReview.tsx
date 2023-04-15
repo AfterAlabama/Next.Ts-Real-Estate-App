@@ -13,6 +13,7 @@ const PropertyReview: FC<PropertyReviewProps> = ({
 	const FurnishedCondition = furnishingStatus && (
 		<PropertyFurnished furnishingStatus={furnishingStatus} />
 	);
+	
 	return (
 		<Flex
 			flexWrap='wrap'

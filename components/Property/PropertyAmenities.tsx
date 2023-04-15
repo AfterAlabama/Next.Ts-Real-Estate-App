@@ -1,5 +1,5 @@
 import { PropertyAmenitiesProps } from '@/types/Props/Property';
-import { Box, Flex, Text } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 import { FC } from 'react';
 import PropertyAmenityList from './PropertyAmenityList';
 

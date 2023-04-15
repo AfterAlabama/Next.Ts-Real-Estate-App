@@ -4,7 +4,7 @@ import PropertyDescription from '@/components/Property/PropertyDescription';
 import PropertyReview from '@/components/Property/PropertyReview';
 import PropertyTitle from '@/components/Property/PropertyTitle';
 import { FetchApi } from '@/fetch/FetchApi';
-import { PropertyDetailsProps } from '@/types/Props/Fetch';
+import { FetchedPropertyDetailsProps } from '@/types/Props/Fetch';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 import { FC } from 'react';
@@ -82,10 +82,12 @@ const PropertyDetails: FC<
 export const getServerSideProps = async (
 	context: GetServerSidePropsContext
 ) => {
-	const id = context.params!.id;
-	const data: PropertyDetailsProps = await FetchApi<PropertyDetailsProps>(
-		`https://bayut.p.rapidapi.com/properties/detail?externalID=${id}`
-	);
+	const id = context.params && context.params.id ? context.params.id : '';
+	
+	const data: FetchedPropertyDetailsProps =
+		await FetchApi<FetchedPropertyDetailsProps>(
+			`https://bayut.p.rapidapi.com/properties/detail?externalID=${id}`
+		);
 
 	return {
 		props: {
